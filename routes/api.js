@@ -3266,7 +3266,7 @@ if(!apikeyInput) return res.json(loghandler.notparam)
 if(apikeyInput != 'KaidoBotz') return res.json(loghandler.invalidKey)
 if (!query) return res.json({ status : false, creator : `${creator}`, message : "masukan parameter url"})
 
-   fetch(encodeURI(`https://leyscoders-api.herokuapp.com/api/playmp3?q=${query}&apikey=dappakntlll`))
+   fetch(encodeURI(`https://api-alphabot.herokuapp.com/api/downloader/youtube/playmp3?query=${query}&apikey=Alphabot`))
     .then(response => response.json())
     .then(data => {
     var result = data;
