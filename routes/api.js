@@ -3258,6 +3258,30 @@ router.get('/yutub/audio', async (req, res, next) => {
 })
 })
 
+router.get('/yutub/ytmp3', async (req, res, next) => {
+    var apikeyInput = req.query.apikey,
+        query = req.query.query
+        
+if(!apikeyInput) return res.json(loghandler.notparam)
+if(apikeyInput != 'KaidoBotz') return res.json(loghandler.invalidKey)
+if (!query) return res.json({ status : false, creator : `${creator}`, message : "masukan parameter url"})
+
+   fetch(encodeURI(`https://leyscoders-api.herokuapp.com/api/playmp3?q=${query}&apikey=dappakntlll`))
+    .then(response => response.json())
+    .then(data => {
+    var result = data;
+         res.json({
+             author: 'MaoneArt',
+             result
+         })
+     })
+     .catch(e => {
+         res.json(loghandler.error)
+})
+})
+
+
+
 
 router.get('/ig/stalk', async (req, res, next) => {
         var apikeyInput = req.query.apikey,
