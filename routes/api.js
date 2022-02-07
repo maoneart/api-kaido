@@ -114,7 +114,7 @@ loghandler = {
         status: false,
         creator: `${creator}`,
         code: 406,
-        message: 'Apikey??? Contact Me On WhatsApp'
+        message: 'Apikey??? Contact Me On WhatsApp https://api.whatsapp.com/send/?phone=%2B6282122365620&text=Mau%20pesan%20ApiKey&app_absent=0'
     },
     invalidlink: {
         status: false,
@@ -3279,6 +3279,29 @@ if (!query) return res.json({ status : false, creator : `${creator}`, message : 
          res.json(loghandler.error)
 })
 })
+
+router.get('/yutub/ytmp4', async (req, res, next) => {
+    var apikeyInput = req.query.apikey,
+        query = req.query.query
+        
+if(!apikeyInput) return res.json(loghandler.notparam)
+if(apikeyInput != 'KaidoBotz') return res.json(loghandler.invalidKey)
+if (!query) return res.json({ status : false, creator : `${creator}`, message : "masukan parameter url"})
+
+   fetch(encodeURI(`https://api-alphabot.herokuapp.com/api/downloader/youtube/playmp4?query=${query}&apikey=Alphabot`))
+    .then(response => response.json())
+    .then(data => {
+    var result = data;
+         res.json({
+             author: 'MaoneArt',
+             result
+         })
+     })
+     .catch(e => {
+         res.json(loghandler.error)
+})
+})
+
 
 
 
