@@ -42,7 +42,7 @@ loghandler = {
         creator: `${creator}`,
         code: 406,
         message: 'masukan parameter apikey',
-        getApikey: 'Apikey??? Contact Me On WhatsApp'
+        getApikey: 'Apikey??? Contact Me On WhatsApp https://api.whatsapp.com/send/?phone=%2B6282122365620&text=Mau%20pesan%20ApiKey&app_absent=0'
     },
     notkey: {
         status: false,
